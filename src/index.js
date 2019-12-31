@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
+import Home from './components/Home.js';
 // Add css files
 import 'bootstrap/dist/css/bootstrap.min.css'; // CSS from Bootstrap
 import '@fortawesome/fontawesome-free/css/all.css'; // CSS from FontAwesome
@@ -11,22 +13,31 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 
+let counter = 0;
+let day = 0;
+let hour = 0;
+let min = 0;
+let sec = 0;
 
-const Home = (props) => {
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12 d-flex justify-content-center">
-                    <i className="fab fa-html5 fa-5x"></i>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-12 d-flex justify-content-center">
-                    <p className="text-success">Welcome to Webpack, Bootstrap and ReactJS</p>
-                </div>
-            </div>
-        </div>
-    )
-}
+let count = setInterval( function() {
 
-ReactDOM.render(<Home />, document.querySelector("#root"));
+    
+    ReactDOM.render(<Home  num1={sec} num2={min} num3 ={hour} num4={day} />, document.querySelector("#root"))
+    sec++;
+    if (sec === 60){
+        sec = 0;
+        min++;
+    }
+    else if(min ===60){
+        min = 0;
+        hour++;
+    }
+    else if(hour ===24){
+    hour = 0;
+    day++;
+    clearInterval(count) 
+    }
+    
+},
+    1000); 
+   
