@@ -24,15 +24,15 @@ let count = setInterval( function() {
     
     ReactDOM.render(<Home  num1={sec} num2={min} num3 ={hour} num4={day} />, document.querySelector("#root"))
     sec++;
-    if (sec === 60){
+    if (sec == 60){
         sec = 0;
         min++;
     }
-    else if(min ===60){
+    else if(min == 60){
         min = 0;
         hour++;
     }
-    else if(hour ===24){
+    else if(hour == 24){
     hour = 0;
     day++;
     clearInterval(count) 

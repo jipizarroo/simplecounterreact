@@ -1,3 +1,11 @@
 body {
     background-color: #3f4455;
 }
+
+
+.card {
+ background: black;
+ margin: 10px;
+ font-size: 30px;
+ color: white;
+}
